@@ -1,0 +1,1233 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>我的网站首页</title>  
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+
+ /* Basic styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.song {
+    flex: 1 1 30%;      /* 实现3个元素占一行*/
+    border-bottom: 1px solid #ddd;
+    padding: 30px;      /*每个歌曲间距*/
+    display: flex;
+}
+.section-container ul {
+    text-align: center;
+    margin-top: 0;
+    list-style: none;
+    padding-left: 0; /* 移除默认内边距 */
+}
+
+.section-container ul li {
+    width: 250px;
+    height: 180px;
+    display: inline-block;
+    position: relative; /* 为绝对定位做准备 */
+}
+.sidebar {
+    position: fixed;
+    top: 200px; /* 根据需要调整 */
+    right: 20px;
+    bottom: 300px;
+    width: 150px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    overflow-y: auto; /* 如果内容超出则允许滚动 */
+    z-index: 1000; /* 确保侧边栏在其他内容之上 */
+}
+.sidebar a {
+    display: block;
+    color: #343a40;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.sidebar a:hover {
+    background-color: #007bff;
+    color: white;
+} 
+
+    </style>
+</head>  
+<body>  
+
+    <header id="header">  
+        <nav class="navbar">  
+            <ul class="navbar-l">  
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我们</a></li>  
+                <li><a href="services.html">服务</a></li>  
+                <li><a href="about.html">联系我们</a></li>  
+            </ul>   
+            <div class="search">
+                <form action="" method="post">
+                    <input placeholder="请输入..." name="keyword" type="text">
+                    <button type="submit"></button>
+                </form>
+            </div>
+            <ul class="navbar-r">  
+                <li><a href="LoginAndRegister/login.html">登录</a></li>
+                <li><a href="history.html">历史</a></li>  
+                <li><a href="favorites.html">收藏</a></li>  
+            </ul>  
+        </nav>  
+    
+    </header>
+    <div class="container" id="1">
+        <h1>歌单推荐</h1>
+        <div class="arrow-container left">
+            <div class="arrow left" onclick="prevPage()">◀</div>
+        </div>
+        <div class="arrow-images-container">
+            <div class="image-row">
+                <div class="image-container">
+                    <a href="love.html"><img src="images/1.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <a href="love.html"><div class="triangle"></div></a> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/1.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/1.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/1.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+             <!-- </div> -->
+             <!-- <div class="image-row"> -->
+                <div class="image-container">
+                    <a href="index.html"><img src="images/2.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/2.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/2.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/2.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+
+             <!-- </div> -->
+             <!-- <div class="image-row"> -->
+                <div class="image-container">
+                    <a href="index.html"><img src="images/3.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/3.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/3.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/3.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+
+             <!-- </div> -->
+             <!-- <div class="image-row"> -->
+                <div class="image-container">
+                    <a href="index.html"><img src="images/4.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/4.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/4.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/4.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+
+             <!-- </div> -->
+             <!-- <div class="image-row"> -->
+                <div class="image-container">
+                    <a href="index.html"><img src="images/2.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/2.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/2.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+                <div class="image-container">
+                    <a href="index.html"><img src="images/2.png" width="15%" height="15%"></a>
+                    <p style="font-size: 16px; font-weight: bold; color: #333;">抖音热歌：一夜爆火首首好听</p>
+                    <p style="font-size: 14px; color: #999;">播放量120w</p>
+                    <div class="triangle"></div> <!-- 三角形 -->   
+                </div>
+
+            </div>
+            <!-- 根据需要添加图片 -->
+        </div>
+        <div class="arrow-container right">
+            <div class="arrow right" onclick="nextPage()">▶</div>
+        </div>
+        <div class="dots-container">
+            <div class="dot" onclick="selectPage(0)">•</div>
+            <div class="dot" onclick="selectPage(1)">•</div>
+            <div class="dot" onclick="selectPage(2)">•</div>
+            <div class="dot" onclick="selectPage(3)">•</div>
+            <div class="dot" onclick="selectPage(4)">•</div>
+        </div>
+    </div>
+    </main> 
+    <div class="sidebar">
+        <a href="#header"> 返回顶部</a>
+        <a href="#1">歌单推荐</a>
+        <a href="#2">歌曲推荐</a>
+        <a href="#MV">MV推荐</a>
+    </div>
+    <main class="content1" id="2">
+
+        <nav class="nav2">  
+            <a href="#section1" onclick="showSection('section1')">最新</a>  
+            <a href="#section2" onclick="showSection('section2')">内地 </a>  
+            <a href="#section3" onclick="showSection('section3')">港台 </a>
+            <a href="#section4" onclick="showSection('section4')">欧美 </a>
+            <a href="#section5" onclick="showSection('section5')">韩国 </a>
+            <a href="#section6" onclick="showSection('section6')">日本 </a> 
+        </nav>  
+        
+        <section id="section1" class="active">  
+           <div class="section-container">
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <a href="player\index.html"><img src="music/天下.png" alt="封面图1">  </a>
+                            <div class="song-info">  
+                                <p class="song-title">天下</p>  
+                                <a href="LoginAndRegister\音乐作者.html"><p class="song-artist">张杰</p>  </a>
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+           </div>
+        </section>  
+        <section id="section2">  
+            <div class="section-container">
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="https://qpic.y.qq.com/music_cover/2IibrwJRJaFq17fpyCfROQ8XgaPpmia6dee2HJniaCBz8ejicjz8ic8v2tQ/600?n=1" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+           </div>
+        
+              
+        </section>  
+        <section id="section3">  
+            <div class="section-container">
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="https://qpic.y.qq.com/music_cover/Yk7U3dVdQ26voFnZGg8OTQKABO7Jj9AI3JoRDSu8cKHbUJeh5SQ5iaA/600?n=1" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+           </div>
+        </section>  
+        <section id="section4">  
+            <div class="section-container">
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="https://qpic.y.qq.com/music_cover/E65GwaCL0V7nsWc8fopdRYGG81udiaV9fOXsYictUUdNjSN1vowohvoA/600?n=1" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+           </div>
+        </section>  
+        <section id="section5">  
+            <div class="section-container">
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="https://qpic.y.qq.com/music_cover/YsStRY37Igl0gsdDWLAC2A2d4eUpe3Qia7Xs6Lv5HRRR4Y3v86sLVcg/600?n=1" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+           </div>
+        </section>  
+        <section id="section6">  
+            <div class="section-container">
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                    <li>
+                        <div class="song">  
+                            <img src="篮球.jpg" alt="封面图1">  
+                            <div class="song-info">  
+                                <p class="song-title">来都来</p>  
+                                <p class="song-artist">徐惟喆</p>  
+                            </div>  
+                            <span class="song-duration">03:35</span>  
+                        </div>   
+                    </li>
+                </ul>
+           </div>
+        </section>   
+        <div class="mv-list" id="MV">
+            <h1>M V</h1>
+            <div class="mv-grid">
+               
+                <div class="mv-item">
+                    <a href="C:\Users\shenmegui\Desktop\VScode\web大作业\播放器\mp4\video0.mp4">
+                        <img src="C:\Users\shenmegui\Desktop\VScode\web大作业\首页\music\天下.png" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>天下</h3>
+                        <p>张杰</p>
+                        <p>播放 3631</p>
+                    </div>
+                </div>
+                <div class="mv-item">
+                    <a href="C:\Users\shenmegui\Desktop\VScode\web大作业\播放器\mp4\video1.mp4">
+                        <img src="C:\Users\shenmegui\Desktop\VScode\web大作业\首页\MV\看月亮爬上来.jpg" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>看月亮爬上来</h3>
+                        <p>张杰</p>
+                        <p>播放 3631</p>
+                    </div>
+                </div>
+                <div class="mv-item">
+                    <a href="index.html">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000001gqOnU3DTg2S_2.jpg?max_age=2592000" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>修炼爱情</h3>
+                        <p>林俊杰</p>
+                        <p>播放 9.0万</p>
+                    </div>
+                </div>
+                <div class="mv-item">
+                    <a href="index.html">
+                        <img src="https://y.qq.com/music/photo_new/T002R500x500M0000026kMsG3451nx.jpg?n=1" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>千千万万</h3>
+                        <p>深海鱼子酱</p>
+                        <p>播放 9.0万</p>
+                    </div>
+                </div>
+                <div class="mv-item">
+                    <a href="index.html">
+                        <img src="https://y.qq.com/music/photo_new/T002R500x500M000003DFRzD192KKD.jpg?n=1" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>搁浅</h3>
+                        <p>周杰伦</p>
+                        <p>播放 9.0万</p>
+                    </div>
+                </div>
+                <div class="mv-item">
+                    <a href="index.html">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M0000006ftqt2nAMYV_2.jpg?max_age=2592000" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>surgar</h3>
+                        <p>Maroon-5</p>
+                        <p>播放 9.0万</p>
+                    </div>
+                </div>
+                <div class="mv-item">
+                    <a href="index.html">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000003cKIKZ1J4Yyu_1.jpg?max_age=2592000" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>倒数</h3>
+                        <p>邓紫棋</p>
+                        <p>播放 9.0万</p>
+                    </div>
+                </div>
+                <div class="mv-item">
+                    <a href="index.html">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000000eQZ1q4g6AsF_1.jpg?max_age=2592000" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>出现又离开</h3>
+                        <p>梁博</p>
+                        <p>播放 9.0万</p>
+                    </div>
+                </div>
+                <div class="mv-item">
+                    <a href="index.html">
+                        <img src="https://qpic.y.qq.com/music_cover/oMphCibDIicibO3ibh8tztPnIvqCBKRjXSEXo97YcNLFToefdqKYKvVZ5g/300?n=1" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>等你下课</h3>
+                        <p>周杰伦</p>
+                        <p>播放 9.0万</p>
+                    </div>
+                </div>
+                <div class="mv-item">
+                    <a href="index.html">
+                        <img src="C:\Users\shenmegui\Desktop\VScode\web大作业\首页\MV\云宫迅音.png" alt="MV Image">
+                    </a>
+                    <div class="mv-info">
+                        <h3>云宫迅音</h3>
+                        <p>游戏科学</p>
+                        <p>播放 9.0万</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    
+    <script>  
+     let currentPage = 0;    //初始化为0，表示当前页码
+        const totalImages = 5;
+
+        function nextPage() {//下一页翻转
+            currentPage = (currentPage + 1) % totalImages;
+            updatePage();
+        }
+
+        function prevPage() {//上一页翻转
+            currentPage = (currentPage - 1 + totalImages) % totalImages;
+            updatePage();
+        }
+
+        function selectPage(index) {//直接指定页码
+            currentPage = index;
+            updatePage();
+        }
+
+        function updatePage() {
+            const images = document.querySelectorAll('.image-container');//使用 querySelectorAll 选择所有类名为 .image 的元素。
+            const dots = document.querySelectorAll('.dot');//使用 querySelectorAll 选择所有类名为 .dot 的元素。
+            images.forEach((image, index) => {          //使用 forEach 遍历所有图片元素
+                const row = Math.floor(index / 4);  //计算当前图片所在的行号，每行有 4 张图片
+                if (row === currentPage) {          //如果当前图片所在的行号等于 currentPage，则显示该图片。
+                    image.style.display = 'block';  //设置图片的 display 属性为 block，使其显示。
+                } else {
+                    image.style.display = 'none';       //否则，隐藏该图片
+                }
+            });
+
+            dots.forEach((dot, index) => {          //使用 forEach 遍历所有圆点元素
+                if (index === currentPage) {        //如果当前圆点的索引等于 currentPage，则激活该圆点
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        //调用 updatePage 函数初始化页面显示。
+        updatePage();
+
+
+        function autoPlay() {   //自动轮播
+            nextPage();
+        }
+
+        setInterval(autoPlay, 3000);//每3秒启动一次自动播放
+        function showSection(sectionId) {  
+            // 隐藏所有部分  
+            const sections = document.querySelectorAll('section');  
+            sections.forEach(section => {  
+                section.classList.remove('active');  
+            });  
+    
+            // 显示被选中的部分  
+            const activeSection = document.getElementById(sectionId);  
+            if (activeSection) {  
+                activeSection.classList.add('active');  
+            }  
+        }  
+    </script>  
+    
+    <footer class="footer">
+        <p>© shenmegui123</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+    #header {  
+            color: rgb(236, 228, 228); /* 白色字体 */  
+            text-align: center;  
+            background-image: url('bilibili-banner.png'),url('bilibili-fill.png'); /* 添加背景图片 */  
+            background-size: cover; /* 使背景图覆盖整个 header */  
+            background-position: top center; /* 将背景图对齐到顶部中心 */  
+            background-repeat: no-repeat; /* 不重复背景图 */  
+            width: 100%;   
+            height: 150px;  
+            font-weight: bold;  
+        }  
+
+        /* 搜索框样式 */  
+        div.search {  
+            padding: 10px 0;  
+        }  
+
+        form {  
+            position: relative;  
+            width: 300px;  
+            margin: 0 auto;  /*设置宽度后，居中*/  
+        }  
+
+        input, button {  
+            border: none;   /*无边框样式*/  
+            outline: none;  /*无轮廓样式*/  
+        }  
+        
+        .search input {  
+            width: 93%;  
+            height: 42px;  
+            padding-left: 13px;  
+            border: 2px solid #4d4949;  
+            border-radius: 19px;   
+            background: transparent;  
+        }  
+
+        .search button {  
+            height: 47px;  
+            width: 50px;  
+            cursor: pointer;  
+            position: absolute;  
+            background: #6262c9;  
+            border-radius: 0 19px 19px 0;  
+            right: 0;  
+        }  
+        
+        .search button:hover {  
+            background-color: #151384;  
+        }  
+        
+        .search button:before {  
+            content: "搜索";  
+            font-size: 13px;  
+            color: #F9F0DA;  
+        }  
+
+        /* 导航栏样式 */  
+        .navbar {  
+            display: flex;  
+            justify-content: space-between;   
+            align-items: center;  
+            padding: 10px 20px;   
+        }  
+
+        .navbar ul {  
+            list-style: none;        
+            padding: 0;             
+            margin: 0;             
+            display: flex;          
+        }  
+
+        .navbar ul li {  
+            margin-right: 15px;     
+        }  
+
+        .navbar ul li a {  
+            color: white;           
+            text-decoration: none;  
+            padding: 10px 15px;     
+            border-radius: 5px;     
+        }  
+
+        .navbar ul li a:hover {  
+            background-color: #45a049;   
+        }  
+
+        .navbar-r {  
+            display: flex;  
+        }  
+
+        .navbar-r li {  
+            margin-left: 20px;   
+        }  
+        header h1 {
+        text-align: center;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .profile-pic {
+        float: left;
+        position: absolute;
+        top :20%;
+        left: 15%;
+    }
+
+    .profile-pic img {
+        max-width: 200px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .accordion {  
+    width: 80%;  
+    max-width: 600px;  
+    background-color: #fff;  
+    border: 1px solid #ccc;  /*边界设置一个1px的边框*/
+    border-radius: 5px;  /*边界变得圆润*/
+    overflow: hidden;  /*隐藏超过边框的部分*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 22%;
+    left: 33%;
+}
+    summary {  
+    background-color: #e9e9e9;  
+    padding: 10px;  
+    cursor: pointer;  /*当用户将鼠标悬停在该元素上时，光标将改变为手形图标。*/
+    outline: none; /* 去除 outline */  
+    font-weight: bold;  
+}  
+
+.content {  
+    padding: 10px;  
+}  
+
+.content img {  
+    width: 30%;   
+    margin-bottom: 10px; /* 图片间距 */  
+    border-radius: 5px; /* 图片圆角效果 */  
+}
+   
+    footer {
+        text-align: center;
+        padding: 10px;
+        background: #50b3a2;
+        color: white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+    <header id="header">  
+        <nav class="navbar">  
+            <ul class="navbar-l">  
+                <li><a href="home.html">首页</a></li>  
+                <li><a href="about.html">关于我们</a></li>  
+                <li><a href="services.html">服务</a></li>  
+                <li><a href="contact.html">联系我们</a></li>  
+            </ul>   
+            <div class="search">
+                <form action="" method="post">
+                    <input placeholder="请输入..." name="keyword" type="text">
+                    <button type="submit"></button>
+                </form>
+            </div>
+            <ul class="navbar-r">  
+                <li><a href="C:\Users\李发起\Desktop\VScode\大作业\登录和注册\login.html">登录</a></li>  
+                <li><a href="history.html">历史</a></li>  
+                <li><a href="favorites.html">收藏</a></li>  
+            </ul>  
+        </nav>  
+    
+    </header>
+    <div class="container">
+        <div class="profile-pic">
+            <img src="C:\Users\shenmegui\Desktop\VScode\web大作业\登录和注册\张杰.png" alt="作者的照片">
+        </div>
+    </div>
+    
+    <div class="accordion">  
+        <h2 style="text-align: center;">张杰</h2> 
+         
+        
+        <details>  
+            <summary>代表作</summary>  
+            <div class="content">  
+                代表作：《这，就是爱》、《勿忘心安》、《我们都一样》、《明天过后》
+            </div>  
+        </details>  
+        
+        <details>  
+            <summary>简介</summary>  
+            <div class="content">  
+                张杰（Jason Zhang），1982年12月20日出生于四川省成都市，中国流行男歌手。
+            </div>  
+        </details>  
+        
+        <details>  
+            <summary>爱唱</summary>  
+            <div class="content">  
+                主要成就：33次荣获最受欢迎男歌手奖、2014年全美音乐奖“年度国际艺人奖”、2010年韩国MAMA“亚洲之星”大奖、连续四年中歌榜最受欢迎男歌手奖、连续五届全球华语榜中榜最受欢迎男歌手、连续四年音乐之声最受欢迎男歌手、三届城市之音至尊金榜年度冠军王、香港TVB8“内地观众最爱男歌手”、蝉联两届中国TOP排行榜最佳男歌手、两届劲歌王内地最受欢迎男歌手、三届东南劲爆榜最受欢迎男歌手、两届雪碧榜最受欢迎男歌手、中国儿童慈善奖—-突出贡献奖
+            </div>  
+        </details>  
+    </div>  
+    <footer>
+        <p>&copy; 2024 我的网站 | 所有权利保留</p>
+    </footer>
+    
+</body>
+</html>

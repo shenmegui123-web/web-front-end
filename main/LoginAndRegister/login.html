@@ -1,0 +1,91 @@
+<html lang="zh">  
+<head>  
+ <meta charset="UTF-8">  
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+ <style>
+    body{
+    background-image: url('登录背景.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;  /*字体*/  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height:100vh;  
+    margin:0;  
+}  
+
+.container {
+    background-color: rgba(250, 245, 245, 0.5); /* 第四个参数是透明度 */
+    padding: 20px;  /* 行内边距 */
+    border-radius: 5px;  /* 边角半径为5像素，变得更圆润 */
+    width: 400px;
+    height: 400px;
+}
+
+h2 {  
+    text-align: center;  
+    margin-bottom:20px;  
+}  
+
+.form-group {  
+    margin-bottom:15px;  
+}  
+
+label {  
+    display: block;  
+    margin-bottom:5px;  
+}  
+
+input {  
+    width:100%;  
+    padding:10px;  
+    border:1px solid #ccc;  
+    border-radius:5px;  
+    text-align:center;
+    color: #b30000;
+}  
+
+button {  
+    border-radius: 20px;/*提交边框设计*/
+    width:100%;  
+    padding:10px;  
+    background-color: #007BFF;  
+    color: white;  
+    border: none;   
+    font-size:16px;  
+}  
+
+button:hover {  
+    background-color: #0056b3;  
+}
+.login{
+    text-align: center;
+}
+#aud {
+        visibility: hidden;
+    }
+ </style> 
+ <title>注册界面</title>    
+</head>  
+<body>  
+    <div class="container">  
+    <img src="images/logo.png" alt="系统Logo" class="logo"> <!-- Logo 图片 -->  
+    <h2>登录</h2>  
+    <form>  
+    <div class="form-group">  
+    <label for="username">用户名</label>  
+    <input type="text" id="username" name="username" required>  
+    </div>  
+    <div class="form-group">  
+    <label for="password">密码</label>  
+    <input type="password" id="password" name="password" required>  
+    </div>   
+    <button type="submit">登录</button>  
+    </form>  
+    <div class="login">
+        <p>没有账号？<a href="注册.html">立即注册</a></p>
+    </div>
+    <audio src="Josh%20Vietti%20-%20A%20Thousand%20Miles.mp3" id="aud" autostart="true" autoplay="autoplay" controls="controls" preload="auto"></audio>
+</body>  
+</html>

@@ -1,0 +1,374 @@
+        /* 简单的内联样式，用于布局 */  
+        /* 基本样式重置 */  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+        .container {
+            /* 默认将。contauner转换为一个弹性容器，子元素也都会成为弹性项目，可以用flexbox直接布局 */
+           /* 默认所有子元素会排成一行 */
+            display: flex;
+            /* 改变默认方向，要求从上往下 */
+            flex-direction: column;
+            align-items: center;
+        }
+        /* 头部样式 */  
+        #header {  
+            color: rgb(236, 228, 228); /* 白色字体 */  
+            text-align: center;  
+            background-image: url('images/bilibili-banner.png'),url('images/bilibili-fill.png'); /* 添加背景图片 */  
+            background-size: cover; /* 使背景图覆盖整个 header */  
+            background-position: top center; /* 将背景图对齐到顶部中心 */  
+            background-repeat: no-repeat; /* 不重复背景图 */  
+            width: 100%;   
+            height: 150px;  
+            font-weight: bold;  
+        }  
+
+        /* 搜索框样式 */  
+        div.search {  
+            padding: 10px 0;  
+        }  
+
+        form {  
+            position: relative;  
+            width: 300px;  
+            margin: 0 auto;  /*设置宽度后，居中*/  
+        }  
+
+        input, button {  
+            border: none;   /*无边框样式*/  
+            outline: none;  /*无轮廓样式*/  
+        }  
+        
+        .search input {  
+            width: 100%;  
+            height: 42px;  
+            padding-left: 13px;  
+            border: 2px solid #4d4949;  
+            border-radius: 19px;   
+            background: transparent;  
+        }  
+
+        .search button {  
+            height: 42px;  
+            width: 42px;  
+            cursor: pointer;  
+            position: absolute;  
+            background: #6262c9;  
+            border-radius: 0 19px 19px 0;  
+            right: 0;  
+        }  
+        
+        .search button:hover {  
+            background-color: #151384;  
+        }  
+        
+        .search button:before {  
+            content: "搜索";  
+            font-size: 13px;  
+            color: #F9F0DA;  
+        }  
+
+        /* 导航栏样式 */  
+        .navbar {  
+            display: flex;  
+            justify-content: space-between;   
+            align-items: center;  
+            padding: 10px 20px;   
+        }  
+
+        .navbar ul {  
+            list-style: none;        
+            padding: 0;             
+            margin: 0;             
+            display: flex;          
+        }  
+
+        .navbar ul li {  
+            margin-right: 15px;     
+        }  
+
+        .navbar ul li a {  
+            color: white;           
+            text-decoration: none;  
+            padding: 10px 15px;     
+            border-radius: 5px;     
+        }  
+
+        .navbar ul li a:hover {  
+            background-color: #45a049;   
+        }  
+
+        .navbar-r {  
+            display: flex;  
+        }  
+
+        .navbar-r li {  
+            margin-left: 20px;   
+        }  
+
+        /* 定义抖动动画 */
+        @keyframes shake {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); } /* 向上移动 */
+            100% { transform: translateY(0); }
+        }
+  
+        /* 左右箭头跳转，相关图片 */
+        .arrow-container {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+        
+        .arrow-container.left {
+            left: 20%;
+        }
+        
+        .arrow-container.right {
+            right: 20%;
+        }
+        
+        .arrow {
+            font-size: 24px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .arrow-images-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .image-row {
+            display: flex;
+            gap: 20px;
+        
+            justify-content: center;
+            
+        }
+        
+        .image {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            
+        }
+        
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .dots-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background-color: #007bff;
+        }
+
+        /*图片三角形效果*/
+        .image-container {  
+            position: relative; /* 相对定位 */  
+            width: 15%; /* 容器宽度 */  
+            height: 15%; /* 容器高度 */  
+            display: inline-block; /* 使多个容器能并排显示 */  
+            margin: 10px; /* 添加间距 */  
+
+        }  
+
+        .image-container img {  
+            width: 100%; /* 图片宽度填满容器 */  
+            height: auto; /* 自动调整高度 */  
+            display: block; /* 移除图片底部的空隙 */  
+        }  
+
+        .triangle {  
+            position: absolute;  
+            top: 40%; /* 垂直居中 */  
+            left: 50%; /* 水平居中 */  
+            width: 0;  
+            height: 0;  
+            /* 设置三角形 */
+            border-left: 20px solid transparent; 
+            border-right: 20px solid transparent;  
+            border-bottom: 30px solid rgba(255, 255, 255, 0.8); /* 三角形颜色和透明度 */  
+            transform: translate(-50%, -50%) rotate(0deg); /* 居中，无旋转 */  
+            opacity: 0; /* 初始隐藏 */  
+            transition: opacity 0.3s ease, transform 0.3s ease; /* 过渡效果 */  
+        }  
+
+        .image-container:hover .triangle {  
+            opacity: 1; /* 鼠标悬停时显现 */  
+            transform: translate(-50%, -50%) rotate(90deg); /* 鼠标悬停时旋转90度 */  
+        }  
+        .image-container:hover
+        {
+            animation: shake 0.5s;
+        }                                                                                              
+   
+        /* 内容样式 */  
+        .content section {  
+            margin-bottom: 20px;  
+            padding: 15px;  
+            border: 1px solid #ddd;  
+            border-radius: 5px;  
+            background-color: #f9f9f9;  
+            text-align: center;
+        }  
+
+       
+     /*section部分*/
+     .section-container {  
+        background: linear-gradient(rgb(244, 241, 241), rgb(249, 248, 248));/*渐变色*/
+        padding-left: 20%;  
+        border-radius: 10px; /* 圆角效果 */  
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */  
+    }  
+        .song {  
+            display: flex;  
+            align-items: center;  
+            margin-bottom: 15px; /* 每首歌之间的间距 */  
+        }  
+
+        .song img {  
+            width: 60px; /* 封面图像宽度 */  
+            height: 60px; /* 封面图像高度 */  
+            border-radius: 5px; /* 封面图像圆角 */  
+            margin-right: 10px; /* 右边距 */  
+        }  
+
+        .song-info {  
+            flex: 1; /* 自动扩展 */  
+        }  
+
+        .song-title {  
+            font-weight: bold; /* 加粗 */  
+        }  
+
+        .song-artist {  
+            color: #666; /* 艺人文字颜色 */  
+        }  
+
+        .song-duration {  
+            /* margin-left: 20px; 播放时长左边距   */
+            color: #999; /* 时长颜色 */  
+        }  
+     /* 页脚样式 */  
+     .footer {  
+        text-align: center;   
+        padding: 10px;  
+        background-color: #4CAF50;   
+        color: white;   
+        width: 100%;   
+    }  
+
+    .content1 section {  
+        display: none; /* 默认隐藏content1类内的所有部分 */  
+    }  
+
+    .content1 section.active {  
+        display: block; /* 显示激活的部分 */  
+    }  
+
+    nav a {  
+        margin: 0 10px; /* 导航链接的间距 */  
+        cursor: pointer; /* 手型光标提示可点击 */ 
+        color: #040404;
+    }   
+ 
+    .nav2 {      
+        text-align: center; /* 文本居中 */  
+        background: linear-gradient(rgb(233, 227, 227), rgb(249, 248, 248));/*渐变色*/
+        height: 80px;
+        font-size: 20px;
+    } 
+
+    nav a:hover{
+        color: rgb(26, 218, 67);
+    }
+    
+.mv-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+}
+
+.tab.active {
+    color: #008000;
+}
+
+.tab.more {
+    margin-left: auto;
+}
+
+.mv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.mv-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mv-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.mv-info {
+    padding: 10px;
+}
+
+.mv-info h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.mv-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+.mv-item :hover{
+     animation: shake 0.5s;
+}

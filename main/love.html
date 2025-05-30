@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .playlist {
+      margin-bottom: 20px;
+    }
+
+    .playlist button {
+      margin-right: 10px;
+    }
+
+    .playlist ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .playlist li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #333;
+    }
+
+    .playlist li.playing {
+      background-color: #333;
+    }
+
+    .player {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .player button {
+      margin-right: 10px;
+    }
+
+    .player input[type="range"] {
+      width: 200px;
+    }
+
+    .player span {
+      margin-left: 10px;
+    }
+
+    .favorite {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .favorite.red {
+      color: red;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="playlist">
+  <ul>
+    <li data-song-title="Go Higher" data-song-artist="威神V (WayV)" data-song-src="Josh Vietti - A Thousand Miles.mp3" onclick="playSong(this)">
+      <input type="checkbox">
+      <span>Go Higher</span>
+      <span>威神V (WayV)</span>
+      <span>03:17</span>
+      <button class="favorite" onclick="toggleFavorite(this)">❤</button>
+    </li>
+    <li data-song-title="A Thousand Miles" data-song-artist="Josh Vietti" data-song-src="Josh Vietti - A Thousand Miles.mp3" onclick="playSong(this)">
+      <input type="checkbox">
+      <span>Poppin' Love (心动预告)</span>
+      <span>威神V (WayV)</span>
+      <span>03:05</span>
+      <button class="favorite" onclick="toggleFavorite(this)">❤</button>
+    </li>
+  <!--添加其他歌曲 -->
+  </ul>
+</div>
+<div class="player">
+  <button onclick="上一首()">⏮</button>
+  <button onclick="播放暂停()">▶</button>
+  <button onclick="下一首()">⏭</button>
+  <input type="range" min="0" max="100" value="0" id="seek" onchange="跳转到(this.value)">
+  <span id="current-time">00:00</span>
+  <span id="total-time">03:17</span>
+</div>
+<audio id="audio" controls class="hidden"></audio>
+<script>
+  // 获取音频元素和控制元素
+  let audio = document.getElementById('audio');
+  let seek = document.getElementById('seek');
+  let currentTime = document.getElementById('current-time');
+  let totalTime = document.getElementById('total-time');
+
+  // 播放或暂停当前歌曲
+  function 播放暂停() {
+    if (audio.paused || audio.ended) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+
+  // 切换至上一首歌
+  function 上一首() {
+    let 当前播放中 = document.querySelector('.playlist li.播放中');
+    if (当前播放中) {
+      let 所有歌曲 = Array.from(document.querySelectorAll('.playlist li'));
+      let 当前索引 = 所有歌曲.indexOf(当前播放中);
+      let 新索引 = 当前索引 - 1;
+
+      // 如果在开头，则循环到最后一首歌
+      if (新索引 < 0) {
+        新索引 = 所有歌曲.length - 1;
+      }
+
+      播放歌曲(所有歌曲[新索引]);
+    }
+  }
+
+  // 切换至下一首歌
+  function 下一首() {
+    let 当前播放中 = document.querySelector('.playlist li.播放中');
+    if (当前播放中) {
+      let 所有歌曲 = Array.from(document.querySelectorAll('.playlist li'));
+      let 当前索引 = 所有歌曲.indexOf(当前播放中);
+      let 新索引 = 当前索引 + 1;
+
+      // 如果在结尾，则循环到第一首歌
+      if (新索引 >= 所有歌曲.length) {
+        新索引 = 0;
+      }
+
+      播放歌曲(所有歌曲[新索引]);
+    }
+  }
+
+  // 根据进度条的值跳转到指定时间点
+  function 跳转到(value) {
+    audio.currentTime = (value / 100) * audio.duration;
+  }
+
+  // 更新进度条的位置
+  function 更新进度条() {
+    if (!isNaN(audio.duration)) {
+      seek.value = (audio.currentTime / audio.duration) * 100;
+      currentTime.textContent = 格式化时间(audio.currentTime);
+    }
+  }
+
+  // 切换收藏状态
+  function 切换收藏(button) {
+    let 是收藏 = button.classList.toggle('red');
+
+    if (是收藏) {
+      let 歌曲标题 = button.closest('li').dataset.songTitle;
+      let 歌手 = button.closest('li').dataset.songArtist;
+      let 歌曲源 = button.closest('li').dataset.songSrc; // 获取歌曲源
+
+      fetch('?action=addFavorite', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+          title: 歌曲标题,
+          artist: 歌手,
+          songSrc: 歌曲源 // 添加歌曲源到请求体中
+        })
+      })
+              .then(response => response.text())
+              .then(message => {
+                console.log(message); // 可选：显示成功消息
+              })
+              .catch(error => {
+                console.error('与服务器交互时出现问题:', error);
+                button.classList.remove('red'); // 请求失败时恢复按钮状态
+              });
+    }
+  }
+
+  // 播放指定歌曲
+  function 播放歌曲(songElement) {
+    let 歌曲源 = songElement.dataset.songSrc;
+    let 歌曲标题 = songElement.dataset.songTitle;
+    let 歌手 = songElement.dataset.songArtist;
+
+    // 更新音频元素的源并加载它
+    audio.src = 歌曲源;
+    audio.load(); // 加载新文件很重要
+
+    // 播放选定的歌曲
+    audio.play();
+
+    // 在播放列表中高亮当前播放的歌曲
+    document.querySelectorAll('.playlist li').forEach(item => item.classList.remove('播放中'));
+    songElement.closest('li').classList.add('播放中');
+
+    // 记录此次播放操作到历史记录表
+    fetch('?action=addHistory', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({
+        title: 歌曲标题,
+        artist: 歌手,
+        songSrc: 歌曲源
+      })
+    }).then(response => response.text())
+            .then(message => {
+              console.log(message); // 可选：显示成功消息
+            })
+            .catch(error => {
+              console.error('与服务器交互时出现问题:', error);
+            });
+  }
+
+  // 监听音频播放进度更新事件
+  audio.addEventListener('timeupdate', 更新进度条);
+
+  // 监听音频结束事件，可在此处实现自动播放下一首逻辑
+  audio.addEventListener('ended', function () {
+    // 可选实现自动播放下一首的逻辑
+  });
+
+  // 初始化时选择播放列表中的第一首歌 - 已注释以防止自动播放
+  // document.querySelector('.playlist li').click();
+</script>

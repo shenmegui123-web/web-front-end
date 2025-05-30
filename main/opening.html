@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 全局设置 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* 确保所有内联内容居中 */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 水平居中对齐 */
+            justify-content: center; /* 垂直居中对齐（如果需要） */
+            min-height: 100vh; /* 让body至少占满整个视口高度 */
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            width: 12em;
+            animation: typingWords 3s steps(12) infinite, cursor 0.5s steps(1) infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 1px solid #000;
+            margin-top: 20px; /* 调整标题与顶部的距离 */
+        }
+
+        @keyframes typingWords {
+            0% {
+                width: 0;
+            }
+        }
+
+        @keyframes cursor {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* 按钮样式 */
+        .jump-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .jump-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* 容器用于包含需要居中的内容 */
+        .container {
+            max-width: 600px; /* 根据需要设定最大宽度 */
+            width: 100%; /* 确保在小屏幕上充满整个宽度 */
+            padding: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>欢迎来到我的音乐网站</h1>
+        
+        <!-- 使用<button>标签创建按钮，并绑定JavaScript事件 -->
+        <button id="homeButton" class="jump-button">首页</button>
+    </div>
+
+    <script>
+        document.getElementById('homeButton').addEventListener('click', function() {
+            // 这里可以添加额外的逻辑，例如确认对话框
+            if (confirm('要去首页吗？')) {
+                window.location.href = '首页.html';
+            }
+        });
+    </script>
+</body>
+
+</html>
